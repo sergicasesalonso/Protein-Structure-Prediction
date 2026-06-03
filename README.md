@@ -72,7 +72,7 @@ Input sequence:   Q  K  S  A  L  ···  V
 ![Distance matrix](images/10ZO._A_dist_matrix.png)
 
 ### 3D structure comparison
-![Structure]images/(10ZO._A_structure.png)
+![Structure](images/10ZO._A_structure.png)
 
 ---
 
