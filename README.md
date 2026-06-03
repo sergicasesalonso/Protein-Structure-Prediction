@@ -30,10 +30,10 @@ Input sequence:   Q  K  S  A  L  ···  V
         │  Transformer encoder │   ← long-range residue pairs
         │  4 layers · h=4 · d=256 │
         └─────────────────────┘
-                  │  node embeddings h ∈ ℝ^256
+                  │  node embeddings
                   ▼
         ┌─────────────────────┐
-        │  GNN (chain graph)   │   ← local backbone geometry
+        │  GNN (chain graph)   │   
         │  3 rounds · i±1 neighbours │
         └─────────────────────┘
                   │  updated embeddings
@@ -42,7 +42,7 @@ Input sequence:   Q  K  S  A  L  ···  V
         │ Distance MLP   │───▶│ MDS │   ← N×N dist matrix → ℝ³
         │ Softplus output │    └─────┘
         └────────────────┘
-                  │  3D Cα coordinates X ∈ ℝ^(N×3)
+                  │  3D Cα coordinates 
                   ▼
         ┌─────────────────────┐
         │ Kabsch alignment     │   ← RMSD evaluation
