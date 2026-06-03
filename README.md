@@ -1,48 +1,22 @@
-# Protein-Structure-
 # 🧬 Protein Structure Prediction with Transformer + GNN
 
-[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c?logo=pytorch)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PDB](https://img.shields.io/badge/Data-RCSB%20PDB-orange)](https://www.rcsb.org/)
 
 > **Coarse-grained Cα protein structure prediction from amino acid sequence alone,
 > using a Transformer encoder + Graph Neural Network + Multidimensional Scaling pipeline.**
 >
-> *Sergi Cases Alonso & Martí Pascual Barluenga — Universitat Pompeu Fabra, 2026*
+> *Sergi Cases Alonso & Martí Pascual Barluenga*
 
----
-
-## 📋 Table of Contents
-- [Overview](#overview)
-- [Pipeline](#pipeline)
-- [Results](#results)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Dataset](#dataset)
-- [Ablation Study](#ablation-study)
-- [References](#references)
-
----
 
 ## Overview
 
 This project addresses the **protein folding problem** at a coarse-grained level:
 given only the amino acid sequence of a protein, can we predict its 3D structure?
 
-We represent proteins as a sequence of **Cα (alpha-carbon) atoms** — one per residue —
+We represent proteins as a sequence of **Cα (alpha-carbon) atoms**
 and frame structure prediction as a **graph regression task**: predict the N×N pairwise
 distance matrix between all Cα atoms, then reconstruct 3D coordinates via MDS.
 
-| What we use | What we don't use |
-|---|---|
-| Raw amino acid sequence | Multiple sequence alignments (MSA) |
-| 15,718 PDB structures | Evolutionary data |
-| Physics-informed bond constraint | Side-chain information |
-| Transformer + GNN | Pre-trained protein language models |
 
----
 
 ## Pipeline
 
@@ -91,7 +65,7 @@ Input sequence:   Q  K  S  A  L  ···  V
 > Sequence-only baselines typically range 8–20 Å. Our result is at the **lower end** of that range.
 
 ### Training curves
-!images/training_curves.png
+![Traininng Curves](training_curves.png)
 ### Distance matrix prediction
 ![Distance matrix](10ZO._A_dist_matrix.png)
 
@@ -192,8 +166,6 @@ the following filters:
 | R-free | ≤ 0.25 |
 | Sequence length | 50–500 residues |
 | Polymer entity count | 1 (single chain) |
-| No chain breaks | ✅ |
-| No disordered regions | ✅ |
 | **Total chains** | **15,718** |
 
 The dataset is split **80% train / 10% val / 10% test** (12,574 / 1,571 / 1,573 chains).
@@ -204,32 +176,7 @@ The dataset is split **80% train / 10% val / 10% test** (12,574 / 1,571 / 1,573 
 > A pre-processed cache of the dataset (`.pkl`) is available at:
 > [Google Drive link](https://drive.google.com/file/d/1feQnZgWO20u0BhXp2TxlxfBDBEphce6F/view?usp=drive_link)
 
----
 
-## Ablation Study
-
-### Architecture ablation
-
-| Model | Params | Test RMSD |
-|-------|--------|-----------|
-| Mean baseline | 0 | 13.97 Å |
-| MLP only | 26,401 | 12.57 Å |
-| No Transformer | 101,281 | 11.77 Å |
-| No GNN | 143,585 | 10.99 Å |
-| **Full (TF + GNN)** | **218,465** | **10.35 Å** |
-
-### Bond-weight (λ) ablation
-
-| λ | Test RMSD |
-|---|-----------|
-| 0.0 (MSE only) | 10.42 Å |
-| 0.5 | 10.63 Å |
-| **1.0 (chosen)** | **10.35 Å** |
-| 2.0 | 10.56 Å |
-
-![Ablation summary](ablation_summary.png)
-
----
 
 ## References
 
@@ -241,8 +188,4 @@ The dataset is split **80% train / 10% val / 10% test** (12,574 / 1,571 / 1,573 
 6. A. Vaswani et al., *Attention is all you need*, NeurIPS (2017)
 7. Z. Lin et al., *Evolutionary-scale prediction of atomic-level protein structure with a language model*, Science (2023)
 
----
 
-## License
-
-This project is licensed under the MIT License.
