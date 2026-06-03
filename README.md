@@ -91,8 +91,7 @@ Input sequence:   Q  K  S  A  L  ···  V
 > Sequence-only baselines typically range 8–20 Å. Our result is at the **lower end** of that range.
 
 ### Training curves
-![Training curves](training_curves.png)
-
+!images/training_curves.png
 ### Distance matrix prediction
 ![Distance matrix](10ZO._A_dist_matrix.png)
 
