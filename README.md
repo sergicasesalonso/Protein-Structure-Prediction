@@ -59,7 +59,7 @@ Input sequence:   Q  K  S  A  L  ···  V
 | **Test RMSD** | **9.19 Å** |
 | Test MSE loss | 28.86 Å² |
 | Bond constraint loss | 0.10 Å² |
-| Distance MAE (example protein) | 3.24 Å |
+| Distance MAE | 3.24 Å |
 | RMSD (example protein, N=109) | 6.25 Å |
 | Trainable parameters | 4,389,953 |
 
