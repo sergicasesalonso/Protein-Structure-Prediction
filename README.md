@@ -16,7 +16,9 @@ We represent proteins as a sequence of **Cα (alpha-carbon) atoms**
 and frame structure prediction as a **graph regression task**: predict the N×N pairwise
 distance matrix between all Cα atoms, then reconstruct 3D coordinates via MDS.
 
-
+Check out the poster and the report here:
+- [Poster](documents/Poster_final.pdf)
+- [Report](documents/Report_final.pdf)
 
 ## Pipeline
 
@@ -65,12 +67,12 @@ Input sequence:   Q  K  S  A  L  ···  V
 > Sequence-only baselines typically range 8–20 Å. Our result is at the **lower end** of that range.
 
 ### Training curves
-![Traininng Curves](training_curves.png)
+![Traininng Curves](images/training_curves.png)
 ### Distance matrix prediction
-![Distance matrix](10ZO._A_dist_matrix.png)
+![Distance matrix](images/10ZO._A_dist_matrix.png)
 
 ### 3D structure comparison
-![Structure](10ZO._A_structure.png)
+![Structure]images/(10ZO._A_structure.png)
 
 ---
 
