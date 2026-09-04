@@ -1,4 +1,4 @@
-# 🧬 Protein Structure Prediction with Transformer + GNN
+# Protein Structure Prediction with Transformer + GNN
 
 
 > **Coarse-grained Cα protein structure prediction from amino acid sequence alone,
